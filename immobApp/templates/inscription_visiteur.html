@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Inscrire Evenement{% endblock  %}
+
+
+
+
+{% block content %}
+    <div class="main-div-head-inscription">
+        <div class="main-container-inscription-seller">
+            <div class="left-div-inscription-text">
+                <ul class="ul-inscription">
+                    <li class="li-inscription"><p class="text">remplir le formulaire</p></li>
+                    <li class="li-inscription"><p class="text">remplir votre nom</p></li>
+                    <li class="li-inscription"><p class="text">remplir votre prenom</p></li>
+                    <li class="li-inscription"><p class="text">remplir votre adresse email</p></li>
+                    <li class="li-inscription"><p class="text">remplir votre numero de telephone</p></li>
+                </ul>
+                <p>Apres remplisage de formlulaire appuyer sur le button <strong>S'inscrire</strong> pour finaliser votre inscription</p>
+            </div>
+            
+
+            <div class="form-div-visiteur">
+                <h3 class="h3" style="font-weight: bold;font-size: 2.5rem;">Formulaire Visiteur </h3>
+                {% if formulaire_envoyer %}
+                    <p>Congratulations! Vous êtes inscrit en tant que visiteur à notre événement Club-EFA. Nous vous invitons à consulter votre boîte e-mail. Merci!</p>
+                    <a href='{{ pdf_url }}' class="btn btn-warning">Click ici Pour télecharger le pdf</a>
+                {% else %}
+                    <form method="POST" class="form-visiteur">
+                        {% csrf_token %}    
+                        {% for field in form %}
+                            <div class="label-form-style"> {{field.label}} </div>
+                            <div class="field-form-style"> {{field}} </div>
+                        {% endfor %} 
+                        <button type="submit" class="button-submit">S'inscrire</button>
+                    </form>
+                {% endif %}
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class='div-visiteur-map-img'>
+        <div class="div-map-visiteur">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12287.97176868358!2d2.305177687907408!3d48.8706055151366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fc3c52c6deb%3A0x9eda90a43280f6b0!2s66%20Av.%20des%20Champs-%C3%89lys%C3%A9es%2C%2075008%20Paris%2C%20France!5e1!3m2!1sfr!2sdz!4v1701953915816!5m2!1sfr!2sdz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <div class="div-map-img">
+           <img src="{% static 'images/champs-ilysees.jpg' %}" width='100%' height='100%' />
+        </div>
+    </div>
+
+    
+
+{% endblock  %}
+
+
+

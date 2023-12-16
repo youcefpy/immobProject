@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>{% if pdf_title %}{{ pdf_title }}{% else %}PDF{% endif %}</title>
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;  
+            }
+            .title span {
+                color: #007cae;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="logo">
+        <img src ='{{ logo_pdf }}' alt='logo_pdf' />
+        </div>
+        <div class='wrapper'>
+            <p class='title'>Inscription #{{ nom }} {{ prenom }} </p>
+        <div>
+        <div> Felecitation vous avez inscrit a l'eveneemnt</div>
+        <div class="text-pdf">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+        <hr class='hrItem' />
+        <div class='details'>
+            
+            Nom: {{ nom }}<br/>
+            Prenom: {{ prenom }} <br/>
+            Ville: {{ ville }}<br/>
+            date : {{ date }}<br>
+            Numero de Telephone : {{ numero_tel }}<br/>
+            <img src="{{ qr_code }}" alt="qr_code_inscription" width="100px" height="100px"/>
+
+            <hr class='hrItem' />
+        </div>
+    </div>
+    </body>
+</html>

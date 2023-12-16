@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+
+{% block title %}Contact{% endblock title %}
+
+
+
+{% block content %}
+    <section class="header-conatct-section">
+        <div class="container">
+            <header class="content-header content-header-small content-header-uppercase">
+                <h1>
+                    <mark>Contactez</mark>-nous
+                </h1>
+                <br>
+                <p>
+                    Vous avez une demande spéciale ou vous souhaitez avoir plus d'informations concernant nos services? N'hésitez pas à nous contacter.
+                </p>
+            </header>
+        </div>
+    </section>
+<div class="conatct-main-div">
+    <div class="contact-form-div">
+        <form method='POST' class="conatct-form-form">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}" class="label-form-contact">{{ field.label }}</label>
+                    <div class="input-field">{{ field }}</div>
+                </div>
+                
+            {% endfor %}
+            <button type="submit" class="btn btn-primary conatct-button">Envoyer</button>
+        </form>
+    </div>
+
+    <div class="conatct-div-content">
+        <h1>Contact Page</h1>
+        <p>Cette page es Vide Nous Vous invotons a consulté cete page une auttre fois Merci :) </p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <p>Nos Contact :<br/> +33....... </p>
+        <p>+33 0000 000 000 00</p>
+    </div>
+
+</div>
+{% endblock content %}

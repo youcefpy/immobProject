@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}ACCEUIL{% endblock  %}
+
+
+
+{% block content %}
+
+   <div class="banner" onload="slider()">
+      <div class="slider">
+         <img src="{% static 'images/img3.jpg' %}" alt="img1" id="slidImg">
+      </div>
+      <div class="overlay">
+
+      </div>
+
+      <div class="text-slid">
+         <h1>Bienvenu dans notre evenement paris algerie 2024</h1>
+         <h3>Nous avons le plaisir de vous acceuilier dans notre salon </h3>
+         <div>
+            <a href="{% url "inscription_visiteur" %}"><button type="button">Inscription</button></a>
+            <a href="{% url "Exposant" %}"><button type="button" class="btn-2">Inverstiseur</button></a>
+         </div>
+      </div>
+
+   </div>
+
+
+   <div class="paragraphe-main">
+      <p>
+         Les salons immobiliers à l'étranger offrent une passerelle unique pour les Algériens résidant à l'étranger, notamment en France et dans d'autres pays européens, afin de rester connectés avec le marché immobilier en Algérie. Ces événements offrent une fenêtre sur les opportunités d'investissement dans leur pays d'origine.
+         Pour la diaspora algérienne, ces salons représentent bien plus qu'une simple exposition immobilière. Ils sont une occasion de découvrir les dernières tendances du marché immobilier en Algérie, de rencontrer des promoteurs, des spécialistes du secteur et d'explorer les possibilités d'investissement dans des projets immobiliers diversifiés.
+         
+      </p>
+   </div>
+
+   <div class="container d-flex video-main-page"> 
+      <div class="div-vid-left">
+         <video width="100%" autoplay muted loop>
+            <source src="{% static 'video/Paris.mp4' %}" type="video/mp4">
+            <source src="{% static 'video/Paris.ogg' %}" type="video/ogg">
+            Your browser does not support the video tag.
+         </video>
+
+      </div>
+      <div class="text-vidio-mobil-device">
+         <h3 class='h3-text-video-mobil'>Bienvenu Notre Diaspora</h3>
+         <p> Actually pressing F5 or reloading the page will send the previously submitted data, not a blank form. So redirecting to another url is the best way out.</p>
+      </div>        
+      <div class="div-video-right">
+         <video width="95%" autoplay muted loop>
+            <source src="{% static 'video/alg.mp4' %}" type="video/mp4">
+            <source src="{% static 'video/alg.ogg' %}" type="video/ogg">
+            Your browser does not support the video tag.
+         </video>
+
+      </div>
+   </div>
+
+   <div class="text-band">
+      <div class="text-scroll">
+         <span>Bienvenu à notre événement club des entrepreneurs français Algérie 2024, n'hésitez pas a inscrire pour la participation !! </span>
+      </div>
+   </div>
+
+   <div class= "container mt-4 cont-main-page-img-txt ">
+      <div class="text-welcome-page-mobile">
+         <p class="text-md-start">
+            Le Salon de l'Immobilier Neuf Algérien à Paris est une occasion privilégiée pour les Algériens résidant en France et en Europe de découvrir les dernières opportunités dans le marché immobilier de leur pays d'origine. Cet événement leur offre une vitrine sur les projets novateurs et les tendances émergentes du secteur immobilier en Algérie.
+         </p>
+        </div>
+        <div class="img-top-welcome-page">
+         <img src="{% static 'images/img-main-page-3div.jpg' %}" alt="img-welcome page" >
+        </div>
+        <div class="text-welcome-page">
+         <p class="text-md-start">
+            Ces événements facilitent également le partage d'expériences entre les Algériens résidant à l'étranger, favorisant ainsi une meilleure compréhension des opportunités et des défis liés à l'investissement immobilier en Algérie. Ils jouent un rôle crucial dans le renforcement des liens entre la diaspora et le développement économique de l'Algérie, en encourageant les investissements dans des projets qui contribuent à la croissance nationale.
+         </p>
+        </div>
+
+   </div>
+  
+   <div class="div-description-visiteur container d-flex">
+      <div class="text-main-visiteur">
+         <p>Explorez les opportunités immobilières en Algérie depuis l'étranger! Notre événement exclusif à Paris offre une occasion unique à la diaspora algérienne de découvrir des possibilités de gains immobiliers dans leur pays d'origine. Rejoignez-nous pour une journée passionnante dédiée à l'investissement immobilier en Algérie, où vous pourrez rencontrer des experts, obtenir des conseils personnalisés et découvrir des projets prometteurs. Saisissez cette chance de construire un avenir prospère tout en restant connecté à vos racines. Ne manquez pas l'opportunité de créer des liens, d'explorer des options de placement et de concrétiser vos rêves immobiliers en Algérie.</p>
+      </div>
+      <div class="img-info-visiteur-main col-6">
+         <p>Appuyer sur le bouton ci dessous pour avoir plus d'information !</p>
+         <a class="btn-esp">En savoir plus</a>
+      </div>
+      
+
+
+   </div>
+
+
+   <div class="exposant-div-main container">
+      <h3 class="h3">Formulaire Exposant</h3>
+      <form method ="POST" class="form-main">
+         {% csrf_token %}
+         {% for field in form  %}
+            <div class="label-form-main"> {{ field.label }} </div>
+            <div class="field-form-main"> {{ field }} </div>
+         {% endfor %}
+
+         <button type="submit">S'inscrire</button>
+      </form>
+   </div>
+   
+   <script>
+      var slideImg = document.getElementById("slidImg");
+      
+      var images = new Array (
+         "{% static 'images/img1.jpg' %}",
+         "{% static 'images/img3.jpg' %}",
+         "{% static 'images/img4.jpg' %}",
+      );
+      var i = 0 ;
+      len = images.length;
+
+      function slider(){
+         if(i> len-1){
+            i = 0;
+         }
+         slideImg.src = images[i];
+         i++;
+         setTimeout('slider()',3000);
+
+      }
+      slider();
+   </script>
+{% endblock  %}

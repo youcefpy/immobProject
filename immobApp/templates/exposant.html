@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Exposant{% endblock  %}
+
+
+
+
+{% block content %}
+   <div class="main-div-exposant">
+      <div class="div-exposant-content">
+         <p>
+            Le Club des Entrepreneurs Franco-Algérien est une organisation visant à faciliter les échanges économiques et commerciaux entre la France et l'Algérie. Il réunit des entrepreneurs, des professionnels et des entreprises des deux pays pour favoriser les partenariats, les investissements.<br/> et le développement des relations bilatérales.
+               Ces clubs offrent généralement un cadre propice à la création de réseaux, à l'organisation d'événements, de conférences et de rencontres permettant aux acteurs économiques de partager leurs expériences, d'explorer de nouvelles opportunités d'affaires et de surmonter les obstacles rencontrés dans le contexte france-algérie<br>.</p>
+      </div>
+      
+      <div class="form-expo">
+         <h1 class="title-form-exposant">Devenir exposant</h1>
+         <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+               <div class="label-form-expo">{{field.label}}</div>
+               <div class="field-form-expo">{{field}}</div>
+               
+            {% endfor %}
+            <button type = "submit">Envoyer</button>
+         </form>
+      </div>
+
+   </div>
+
+   <div class='div-visiteur-map-img'>
+      <div class="div-map-visiteur">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12287.97176868358!2d2.305177687907408!3d48.8706055151366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fc3c52c6deb%3A0x9eda90a43280f6b0!2s66%20Av.%20des%20Champs-%C3%89lys%C3%A9es%2C%2075008%20Paris%2C%20France!5e1!3m2!1sfr!2sdz!4v1701953915816!5m2!1sfr!2sdz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+      </div>
+      <div class="div-map-img">
+         <img src="{% static 'images/champs-ilysees.jpg' %}" width='100%' height='100%' />
+      </div>
+   </div>
+   
+{% endblock  %}
+
