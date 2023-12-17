@@ -17,11 +17,11 @@
       </div>
 
       <div class="text-slid">
-         <h1>Bienvenu dans notre evenement paris algerie 2024</h1>
-         <h3>Nous avons le plaisir de vous acceuilier dans notre salon </h3>
+         <h1>Bienvenue dans notre événement parie Algérie 2024</h1>
+         <h3>Nous avons le plaisir de vous acceuilier dans notre salon</h3>
          <div>
-            <a href="{% url "inscription_visiteur" %}"><button type="button">Inscription</button></a>
-            <a href="{% url "Exposant" %}"><button type="button" class="btn-2">Inverstiseur</button></a>
+            <a href="{% url "inscription_visiteur" %}"><button type="button">Je suis Exposant</button></a>
+            <a href="{% url "Exposant" %}"><button type="button" class="btn-2">Je suis Visiteur</button></a>
          </div>
       </div>
 
@@ -82,20 +82,18 @@
 
    </div>
   
-   <div class="div-description-visiteur container d-flex">
+   <div class="div-description-visiteur container d-flex my-5">
       <div class="text-main-visiteur">
          <p>Explorez les opportunités immobilières en Algérie depuis l'étranger! Notre événement exclusif à Paris offre une occasion unique à la diaspora algérienne de découvrir des possibilités de gains immobiliers dans leur pays d'origine. Rejoignez-nous pour une journée passionnante dédiée à l'investissement immobilier en Algérie, où vous pourrez rencontrer des experts, obtenir des conseils personnalisés et découvrir des projets prometteurs. Saisissez cette chance de construire un avenir prospère tout en restant connecté à vos racines. Ne manquez pas l'opportunité de créer des liens, d'explorer des options de placement et de concrétiser vos rêves immobiliers en Algérie.</p>
       </div>
       <div class="img-info-visiteur-main col-6">
          <p>Appuyer sur le bouton ci dessous pour avoir plus d'information !</p>
-         <a class="btn-esp">En savoir plus</a>
+         <a class="btn-esp" href='inscription_visiteur'>En savoir plus</a>
       </div>
       
-
-
    </div>
 
-
+{% comment %} 
    <div class="exposant-div-main container">
       <h3 class="h3">Formulaire Exposant</h3>
       <form method ="POST" class="form-main">
@@ -107,7 +105,19 @@
 
          <button type="submit">S'inscrire</button>
       </form>
+   </div> {% endcomment %}
+
+   <div class="div-description-exposant container d-flex my-5">
+      <div class="img-info-exposant-main col-6">
+         <p>Appuyer sur le bouton ci dessous pour avoir plus d'information !</p>
+         <a class="btn-esp" href='Exposant'>En savoir plus</a>
+      </div>
+
+      <div class="text-main-exposant">
+         <p>Explorez les opportunités immobilières en Algérie depuis l'étranger! Notre événement exclusif à Paris offre une occasion unique à la diaspora algérienne de découvrir des possibilités de gains immobiliers dans leur pays d'origine. Rejoignez-nous pour une journée passionnante dédiée à l'investissement immobilier en Algérie, où vous pourrez rencontrer des experts, obtenir des conseils personnalisés et découvrir des projets prometteurs. Saisissez cette chance de construire un avenir prospère tout en restant connecté à vos racines. Ne manquez pas l'opportunité de créer des liens, d'explorer des options de placement et de concrétiser vos rêves immobiliers en Algérie.</p>
+      </div>
    </div>
+
    
    <script>
       var slideImg = document.getElementById("slidImg");
