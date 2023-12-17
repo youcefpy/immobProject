@@ -26,9 +26,9 @@ class Inscription(models.Model):
         editable=False,
         default='IMOBDZFR' + str(uuid.uuid4())[:8].upper()
     )
-    qr_code = models.ImageField(upload_to='qr_codes',blank=True)
+    qr_code = models.ImageField(upload_to='qr_codes',blank=True, max_length=255)
     date_inscription = models.DateTimeField(auto_now=True)
-    logo_pdf = models.ImageField(default=default_logo_pdf)
+    logo_pdf = models.ImageField(default=default_logo_pdf,max_length=255)
     
     objects = InscriptionManager()
     

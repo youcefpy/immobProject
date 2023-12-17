@@ -53,14 +53,14 @@ def inscription(request) :
             # url to pdf
             pdf_url = os.path.join(settings.MEDIA_URL, 'pdfs', filename)
             print(f"the pdf url is ==> {pdf_url}")
-            html_pdf_url = str(pdf_url)
+            html_pdf_url = settings.HOST + str(pdf_url).replace('\\', '/')
             context ={
                 'formulaire_envoyer':formulaire_envoyer,
                 'pdf_url':pdf_url,
                 'html_pdf_url': html_pdf_url
             }
             
-
+            data['html_pdf_url'] = html_pdf_url
             html_message = render_to_string('email_visiteur.html',data)
             plain_message = strip_tags(html_message)
             try : 
