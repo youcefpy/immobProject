@@ -1,12 +1,18 @@
 from django.db import models
 import uuid
 import qrcode
+import os
 from io import BytesIO
 from django.core.files import File
 from PIL import Image, ImageDraw
 from phonenumber_field.modelfields import PhoneNumberField
 from .managers import InscriptionManager,InscriptionExposantManager
+from django.conf import settings
 
+debug_logo_pdf = os.path.join(settings.STATICFILES_DIRS[0], 'images/favicon/favicon_immobfrdz.png') 
+prod_logo_pdf = os.path.join(settings.STATIC_ROOT, 'images/favicon/favicon_immobfrdz.png') 
+
+default_logo_pdf = debug_logo_pdf if settings.DEBUG else prod_logo_pdf
 
 class Inscription(models.Model):
     nom = models.CharField(max_length=255)
@@ -22,7 +28,7 @@ class Inscription(models.Model):
     )
     qr_code = models.ImageField(upload_to='qr_codes',blank=True)
     date_inscription = models.DateTimeField(auto_now=True)
-    logo_pdf = models.ImageField(default='../static/images/favicon/favicon_immobfrdz.png')
+    logo_pdf = models.ImageField(default=default_logo_pdf)
     
     objects = InscriptionManager()
     
