@@ -141,7 +141,7 @@ EMAIL_HOST_USER =env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD") 
 EMAIL_LOGGING = True
 
-# Generate secret key
-# >>> import secrets
-# >>> secret_key = secrets.token_hex(50)
-# >>> secret_key
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
