@@ -93,20 +93,6 @@
       
    </div>
 
-{% comment %} 
-   <div class="exposant-div-main container">
-      <h3 class="h3">Formulaire Exposant</h3>
-      <form method ="POST" class="form-main">
-         {% csrf_token %}
-         {% for field in form  %}
-            <div class="label-form-main"> {{ field.label }} </div>
-            <div class="field-form-main"> {{ field }} </div>
-         {% endfor %}
-
-         <button type="submit">S'inscrire</button>
-      </form>
-   </div> {% endcomment %}
-
    <div class="div-description-exposant container d-flex my-5">
       <div class="img-info-exposant-main col-6">
          <p>Appuyer sur le bouton ci dessous pour avoir plus d'information !</p>

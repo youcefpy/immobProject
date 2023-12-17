@@ -1,10 +1,14 @@
-
-
-<body>
-    <h1>Bonjour Mme,Mr {{ nom }} </h1>
-    <p>votre inscription pour cette eveneemnt a bien ete recu nous vous invitant a imprimer votre inscription. checking linking: {{ html_pdf_url }}</p>
-    <p>Cliquer sur le lien ci dessus pour pouvoir telecharger le pdf de votre inscription</p>
-    <p><a href="{{ pdf_url }}"> Telecharger</p>
+<body style="font-size:1.6rem;font-family:system-ui;">
+    <h1>Bonjour {{ nom }} </h1>
+    <p>votre inscription pour cette eveneemnt a bien ete recu nous vous invitant a imprimer votre inscription.</p>
+    <p>Cliquer sur le lien ci dessus pour pouvoir telecharger le pdf de votre inscription: <span id="url_path"></span> </p>
     <p>Merci de bien vouloir accepté nos salutation destigué</p>
 
 </body>
+
+<script>
+    var url_path = document.getElementById("url_path");
+    if(url_path){
+        url_path.innerHTML = {{ html_pdf_url }}
+    }
+</script>
