@@ -48,7 +48,7 @@ urllib3 = "==2.1.0"
 webencodings = "==0.5.1"
 xhtml2pdf = "==0.2.13"
 django-environ = "*"
-django = "==4.2"
+django = "==4.0"
 
 [dev-packages]
 
