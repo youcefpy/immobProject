@@ -5,6 +5,9 @@
     padding:0;
     box-sizing: border-box;
 }
+html{
+  scroll-behavior: smooth;
+}
 body{
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
@@ -736,17 +739,19 @@ display: flex;
 .div-visiteur-map-img{
   display: flex;
   margin: 1rem 1rem 1rem 1rem;
+  justify-content: space-around;
 
 }
 .div-map-visiteur{
-  width: 50%;
+  width: 40%;
 }
 .div-map-visiteur iframe{
   border-radius: 1rem;
+  width: 100%;
 }
 
 .div-map-img{
-  width: 50%;
+  width: 40%;
 
 }
 .div-map-img img{
