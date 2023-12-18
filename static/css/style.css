@@ -659,7 +659,7 @@ display: flex;
 
 
 }
-@media (width:768px) {
+@media only screen and (width:768px) {
   .div-visiteur-map-img{
     flex-direction: column;
 
@@ -672,7 +672,7 @@ display: flex;
     width: 100% ;
   }
   .form-visiteur {
-    width: 90%;
+    width: 90% !important;
   }
 }
 
