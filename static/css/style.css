@@ -662,8 +662,6 @@ display: flex;
   }
 
 
-}
-@media only screen and (width:768px) {
   .div-visiteur-map-img{
     display: flex;
     flex-direction: column;
@@ -680,7 +678,25 @@ display: flex;
   .form-visiteur {
     width: 90%;
   }
+  .text-main-exposant{
+    margin-left: 0;
+  }
+  .text-main-exposant p {
+    font-size: 1rem;
+  }
+  .div-description-exposant {
+    flex-direction: column-reverse;
+  }
+  .img-info-exposant-main {
+    margin-right: 0;
+  }
+  .img-info-exposant-main p {
+    width: 100%;
+  }
+
+
 }
+
 
 .header-conatct-section{
   padding: 5rem;
