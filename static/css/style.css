@@ -909,3 +909,15 @@ display: flex;
 .about-objective{
   margin-top:2rem;
 }
+
+.test{
+  display: flex;
+}
+.test-div-map , .test-div-img img{
+  width: 100%;
+}
+@media screen and (max-width:768px) {
+  .test{
+    flex-direction:column;
+  } 
+}
