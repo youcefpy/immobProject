@@ -656,6 +656,18 @@ display: flex;
   .img-info-visiteur-main{
     width: 100% !important;
   }
+
+  .div-visiteur-map-img{
+    flex-direction: column;
+
+  }
+  .div-map-visiteur{
+    width: 100% !important;
+    margin: 10px 0 10px 0;
+  }
+  .div-map-img {
+    width: 100% !important;
+  }
 }
 
 .header-conatct-section{
