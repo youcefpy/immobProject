@@ -544,6 +544,10 @@ display: flex;
   display: none;
 }
 
+.div-map-visiteur h2{
+  text-align: center;
+}
+
 @media only screen and  (max-width:768px) {
   .banner{
     height: 85vh;
@@ -668,6 +672,7 @@ display: flex;
     width: 100% ;
     margin: 10px 0 10px 0;
   }
+
   .div-map-img {
     width: 100% ;
   }
