@@ -658,7 +658,7 @@ display: flex;
   }
 
   .div-visiteur-map-img{
-    flex-direction: column;
+    flex-direction: column !important;
 
   }
   .div-map-visiteur{
