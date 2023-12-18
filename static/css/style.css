@@ -657,16 +657,19 @@ display: flex;
     width: 100% !important;
   }
 
+
+}
+@media screen and (width:768px) {
   .div-visiteur-map-img{
-    flex-direction: column !important;
+    flex-direction: column;
 
   }
   .div-map-visiteur{
-    width: 100% !important;
+    width: 100% ;
     margin: 10px 0 10px 0;
   }
   .div-map-img {
-    width: 100% !important;
+    width: 100% ;
   }
 }
 
