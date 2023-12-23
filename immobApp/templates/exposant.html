@@ -15,16 +15,25 @@
       </div>
       
       <div class="form-expo">
-         <h1 class="title-form-exposant">Devenir exposant</h1>
-         <form method="POST">
-            {% csrf_token %}
-            {% for field in form %}
-               <div class="label-form-expo">{{field.label}}</div>
-               <div class="field-form-expo">{{field}}</div>
-               
-            {% endfor %}
-            <button type = "submit">Envoyer</button>
-         </form>
+         {% if formulaire_envoyer %}
+            <p class="msg-after-submit-exposant">L'envoi De Formulaire a été effectuer avec succée. Un email est envoyer sur votre boite email. Nous Avons vous Contacter pour finaliser L'inscription.</p>
+         {% else %}
+            <h1 class="title-form-exposant">Devenir exposant</h1>
+            <form method="POST">
+               {% csrf_token %}
+               {% for field in form %}
+                  <div class="label-form-expo">{{field.label}}</div>
+                  <div class="field-form-expo">{{field}}</div>
+               {% endfor %}
+               {% if messages %}
+                  {% for message in messages %}
+                     <h6 {% if message.tags %} class="text-danger"{% endif %} >{{ message }}</h6>
+                  {% endfor %}
+               {% endif %}
+               <button type = "submit" class="button-exposant">Envoyer</button>
+            </form>
+         {% endif %}
+         
       </div>
 
    </div>

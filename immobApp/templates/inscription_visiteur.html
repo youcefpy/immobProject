@@ -33,6 +33,11 @@
                             <div class="label-form-style"> {{field.label}} </div>
                             <div class="field-form-style"> {{field}} </div>
                         {% endfor %} 
+                        {% if messages %}
+                            {% for message in messages %}
+                                <h6 {% if message.tags %} class="text-danger"{% endif %} >{{ message }}</h6>
+                            {% endfor %}
+                        {% endif %}
                         <button type="submit" class="button-submit">S'inscrire</button>
                     </form>
                 {% endif %}

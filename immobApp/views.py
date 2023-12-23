@@ -8,7 +8,7 @@ from django.utils.html import strip_tags
 from django.core.mail import send_mail,get_connection
 import os
 from django.conf import settings
-
+from django.contrib import messages
 
 def inscription(request) :
     formulaire_envoyer = False
@@ -72,12 +72,18 @@ def inscription(request) :
                 )
                 message.attach_alternative(html_message,"text/html")
                 message.send()
+                messages.success(request,"Inscription avec Succée")
             except Exception  as e : 
                 print(f"An error occurred: {e}")
             
             
-            return render(request,'inscription_visiteur.html',context)
             
+            return render(request,'inscription_visiteur.html',context)
+        
+        else : 
+            for field, errors in form.errors.as_data().items():
+                for error in errors:
+                    messages.error(request, f"{field}: {' '.join(error)}")   
         
     else : 
         form = IntegrationForm()
@@ -134,6 +140,8 @@ def main_view(request):
 
 def inscriptionExposant(request):
     if request.method == "POST":
+        formulaire_envoyer = False
+        
         form = ExposantInscriptionForm(request.POST)
         if form.is_valid():
             # form.save()
@@ -143,8 +151,11 @@ def inscriptionExposant(request):
             adresse = form.cleaned_data['adresse']
             email = form.cleaned_data['email']
             secteur_activite = form.cleaned_data['secteur_activite']
-
+            
             exposant_data = ExposantInscription.objects.createAndReturn(nom,raison_sociel,telephone,adresse,email,secteur_activite)
+            
+            formulaire_envoyer = True
+            
             context = {
                 'nom' : exposant_data.nom,
                 'raison_sociel':exposant_data.raison_sociel,
@@ -165,14 +176,24 @@ def inscriptionExposant(request):
             )
             message.attach_alternative(html_message,"text/html")
             message.send()
+            
             form = ExposantInscriptionForm()
-            return redirect('Exposant') 
+            context ={
+                'formulaire_envoyer':formulaire_envoyer,
+            }
+            messages.success(request,"Inscription Exposant avec succée")
+            return render(request,"exposant.html",context)
+    
+        else :
+            for field, errors in form.errors.as_data().items():
+                for error in errors:
+                    messages.error(request, f"{field}: {' '.join(error)}")   
+
     else : 
         form = ExposantInscriptionForm()
         
     context = {
         'form' : form,
-        
     }
     return render(request,'exposant.html',context)
             

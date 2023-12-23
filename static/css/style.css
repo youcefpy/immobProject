@@ -460,7 +460,7 @@ display: flex;
   border: 3px solid rgba(0,0,0,0.1) !important;
   padding: 20px !important;
   border-radius: 30px !important;
-  background-color: rgba(0,0,0,0.4) !important;
+  background-color: rgba(0,0,0,0.7) !important;
 }
 .label-form-expo{
   margin-left: 10px !important;
@@ -671,13 +671,8 @@ display: flex;
 
   }
 
-  .div-map-visiteur{
-    width: 100% ;
-    margin: 10px 0 10px 0;
-  }
-
   .div-map-img {
-    width: 100% ;
+    width: 100% !important;
   }
   .form-visiteur {
     width: 90%;
@@ -700,6 +695,10 @@ display: flex;
     width: 100% !important;
   }
 
+
+  .div-map-visiteur{
+    width: 100% !important;
+  }
 
 }
 
@@ -943,4 +942,28 @@ display: flex;
 .about-objective{
   margin-top:2rem;
 }
+.msg-after-submit-exposant{
+  width: 60%;
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: bold;
+  color: yellowgreen;
+}
 
+.button-exposant{
+  opacity: 0.8;
+}
+.button-exposant:hover{
+  opacity: 1;
+  transition: 0.3s all;
+}
+@media screen and (max-width: 768px) {
+  .msg-after-submit-exposant{
+    width: 100%;
+    font-size: 1.2rem;
+    color: #FFF;
+    text-align: justify;
+
+  }
+
+}
